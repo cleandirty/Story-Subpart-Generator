@@ -2,10 +2,19 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
     margin: 0;
+    box-sizing: border-box;
     padding: 0;
+    background: linear-gradient(to right, #091018 0%, #1a1431 100%);
+	background: -moz-linear-gradient(
+		to right,
+		hsla(212, 45%, 6%, 1) 0%,
+		hsla(328, 100%, 11%, 1) 100%
+	);
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
@@ -14,16 +23,23 @@ body {
     border-radius: 5px;
 }
 
+input{
+    width: 90%;
+    margin: 10px;
+}
+
 textarea {
     width: 100%;
-    height: 150px;
-    margin-bottom: 10px;
+    max-width: 600px;
+    height: 250px;
+    margin: 10px;
 }
 
 button {
     background-color: #4caf50;
     color: #fff;
     padding: 10px 15px;
+    margin-bottom:10px ;
     border: none;
     border-radius: 3px;
     cursor: pointer;

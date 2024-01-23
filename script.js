@@ -16,19 +16,21 @@ function generateSubparts() {
           if (story[i] === '{' && story[i + 1] === '}') {
               i = i + 2;
               currentSubpart = story.substring(i, i + 300);
-              const lastPunc = Math.max(currentSubpart.lastIndexOf('.'), currentSubpart.lastIndexOf(','));
+              const lastPunc = Math.max(currentSubpart.lastIndexOf('.'), currentSubpart.lastIndexOf(','),currentSubpart.lastIndexOf('”'));
               subparts.push([story.substring(i, lastPunc + 1 + i),"2by4"]);
               currentSubpart = '';
               i = i + lastPunc;
           } else {
               currentSubpart = story.substring(i, i + 400);
-              const lastPunc = Math.max(currentSubpart.lastIndexOf('.'), currentSubpart.lastIndexOf(','));
+              const lastPunc = Math.max(currentSubpart.lastIndexOf('.'), currentSubpart.lastIndexOf(','),currentSubpart.lastIndexOf('”'));
+              console.log(currentSubpart.indexOf('{') === -1)
               if (lastPunc !== -1 && currentSubpart.indexOf('{') === -1) {
                   subparts.push([story.substring(i, lastPunc + 1 + i),"2by5"]);
                   currentSubpart = '';
                   i = i + lastPunc;
               } else {
                   subparts.push([story.substring(i, currentSubpart.lastIndexOf('{') + i),"2by5"]);
+                  console.log(story.substring(i, currentSubpart.lastIndexOf('{') + i),"2by5")
                   i = i + currentSubpart.lastIndexOf('{') - 1;
                   currentSubpart = '';
               }
